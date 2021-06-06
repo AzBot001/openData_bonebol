@@ -1,0 +1,24 @@
+RewriteEngine On
+RewriteBase /openData_bonebol/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^index$ index.php
+RewriteRule ^admin$ admin.php
+
+RewriteRule ^beranda_admin$ admin.php?t_admin=beranda_admin
+RewriteRule ^contoh$ admin.php?t_admin=contoh
+RewriteRule ^kategori$ admin.php?t_admin=kategori
+RewriteRule ^organisasi_perusahaan$ admin.php?t_admin=organisasi_perusahaan
+
+# X-XSS-Protection
+<IfModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Protect database config file
+<Files env.php>
+    deny from all
+</Files>
+Options All -Indexes
