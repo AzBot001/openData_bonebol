@@ -12,6 +12,11 @@ RewriteRule ^contoh$ admin.php?t_admin=contoh
 RewriteRule ^kategori$ admin.php?t_admin=kategori
 RewriteRule ^organisasi_perusahaan$ admin.php?t_admin=organisasi_perusahaan
 
+RewriteRule ^beranda$ user.php?t_user=beranda
+RewriteRule ^dataset$ user.php?t_user=dataset
+RewriteRule ^detail_dataset$ user.php?t_user=detail_dataset
+RewriteRule ^infografik$ user.php?t_user=infografik
+
 # X-XSS-Protection
 <IfModule mod_headers.c>
 	Header set X-XSS-Protection "1; mode=block"

@@ -12,7 +12,7 @@ if($_GET['t_admin'] == 'beranda_admin'){
     $title = 'Kategori Data';
     $icon = 'fas fa-bookmark';
 } else if($_GET['t_admin'] == 'organisasi_perusahaan'){
-    $title = 'Organisai / Perusahaan';
+    $title = 'Organisasi / Perusahaan';
     $icon = 'fas fa-city';
 }
 

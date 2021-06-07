@@ -39,7 +39,13 @@
                   </li>              
                 </ul>
               </div>
-            </li>        
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link" href="examples/icons.html">
+                <i class="fas fa-file text-primary"></i>
+                <span class="nav-link-text">Laporan</span>
+              </a>
+            </li>      
           </ul>
         
         </div>

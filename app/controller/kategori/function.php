@@ -23,8 +23,8 @@ function tampil_data_kategori($mysqli){
         <div class="modal-dialog" role="document">
           <form action="" method="post" enctype="multipart/form-data">
           <div class="modal-content">
-            <div class="modal-header">
-              <h6 class="modal-title" id="modal-title-default"><?= $d['nama_kategori'] ?></h6>
+            <div class="modal-header bg-primary">
+              <h6 class="modal-title text-white" id="modal-title-default"><?= $d['nama_kategori'] ?></h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
@@ -45,8 +45,8 @@ function tampil_data_kategori($mysqli){
         <div class="modal-dialog" role="document">
           <form action="" method="post" enctype="multipart/form-data">
           <div class="modal-content">
-            <div class="modal-header">
-              <h6 class="modal-title" id="modal-title-default">Edit Data Kategori</h6>
+            <div class="modal-header bg-primary">
+              <h6 class="modal-title text-white" id="modal-title-default">Edit Data Kategori</h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>

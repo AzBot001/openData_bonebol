@@ -63,7 +63,7 @@
                 }
                 ?>
               <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#modal-default"><i class="fas fa-plus-square"></i> Kategori Data</button>
-                <table class="table table-flush mt-4" id="datatable1">
+                <table class="table table-hover table-flush mt-4" id="datatable1">
                   <thead class="thead-light">
                     <tr>
                       <th class="sort">No</th>
@@ -86,8 +86,8 @@
         <div class="modal-dialog" role="document">
           <form action="" method="post" enctype="multipart/form-data">
           <div class="modal-content">
-            <div class="modal-header">
-              <h6 class="modal-title" id="modal-title-default">Input Kategori Data</h6>
+            <div class="modal-header bg-primary">
+              <h6 class="modal-title text-white" id="modal-title-default">Input Kategori Data</h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
@@ -95,7 +95,7 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="">Nama Kategori</label>
-                <input type="text" autocomplete="off" name="nama_kategori" class="form-control">
+                <input type="text" autocomplete="off" name="nama_kategori" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="">Gambar</label>
