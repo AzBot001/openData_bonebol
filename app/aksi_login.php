@@ -11,7 +11,7 @@ if (isset($_POST['login'])) {
         return false;
     }
 
-    $stmt_admin = $mysqli->prepare("SELECT nama_organisasi, pass FROM organisasi WHERE email = ?");
+    $stmt_admin = $mysqli->prepare("SELECT id_organisasi, nama_organisasi, pass FROM organisasi WHERE email = ?");
   
     if ($stmt_admin) {
         $stmt_admin->bind_param('s', $_POST['user']);
@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
       
 
         if ($stmt_admin->num_rows > 0) {
-            $stmt_admin->bind_result($nama, $pass);
+            $stmt_admin->bind_result($id, $nama, $pass);
             $stmt_admin->fetch();
             if (password_verify($_POST['password'], $pass)) {
                 session_regenerate_id();
@@ -41,14 +41,14 @@ if (isset($_POST['login'])) {
                     $stmt_log->execute();
                 }
 
-                $_SESSION['unique_user'] = $_POST['email'];
-                $_SESSION['unique_user2'] = $_POST['id_organisasi'];
+                $_SESSION['unique_user'] = $_POST['user'];
+                $_SESSION['unique_user2'] = $id;
                 $_SESSION['nama'] = $nama;
                 $_SESSION['token'] = $token;
                 $_SESSION['type_user'] = "organisasi";
                 ?>
                 <script>
-                    document.location.href = 'beranda_admin';
+                    document.location.href = 'beranda_organisasi';
                 </script>
                 <?php
             } else {
@@ -62,7 +62,7 @@ if (isset($_POST['login'])) {
         } else {
             ?>
             <script>
-                alert('NISN yang anda masukkan salah !');
+                alert('Email yang anda masukkan salah !');
                 document.location.href = '<?= $base_url; ?>';
             </script>
             <?php

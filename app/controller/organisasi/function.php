@@ -37,12 +37,12 @@ function tampil_data_organisasi($mysqli)
                                     </div>
                                     <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                                     </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
+                                    <div class="card-body pt-0"><br><br><br>
+                                        <!-- <div class="row">
                                             <div class="col">
                                                 <div class="card-profile-stats d-flex justify-content-center mt-5">
                                                     <div>
-                                                        <span class="heading">22</span>
+                                                        <span class="heading">$query = ''</span>
                                                         <span class="description">Data Set</span>
                                                     </div>
                                                     <div>
@@ -51,7 +51,7 @@ function tampil_data_organisasi($mysqli)
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="text-center">
                                             <h5 class="h3">
                                                 <?= $d['nama_organisasi'] ?>

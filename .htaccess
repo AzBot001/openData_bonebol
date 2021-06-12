@@ -1,5 +1,6 @@
 RewriteEngine On
 RewriteBase /openData_bonebol/
+Options +FollowSymLinks
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -14,8 +15,23 @@ RewriteRule ^organisasi_perusahaan$ admin.php?t_admin=organisasi_perusahaan
 
 RewriteRule ^beranda$ user.php?t_user=beranda
 RewriteRule ^dataset$ user.php?t_user=dataset
-RewriteRule ^detail_dataset$ user.php?t_user=detail_dataset
+RewriteRule ^detail_dataset/([0-9]+)$ user.php?t_user=detail_dataset&id=$1 [NC,L]
+RewriteRule ^detail_infografik/([0-9]+)$ user.php?t_user=detail_infografik&id=$1 [NC,L]
+RewriteRule ^detail_organisasi/([0-9]+)$ user.php?t_user=detail_organisasi&id=$1 [NC,L]
 RewriteRule ^infografik$ user.php?t_user=infografik
+RewriteRule ^organisasi$ user.php?t_user=organisasi
+
+RewriteRule ^beranda_organisasi$ opd.php?t_opd=beranda_organisasi
+RewriteRule ^dataset_org$ opd.php?t_opd=dataset_org
+RewriteRule ^info$ opd.php?t_opd=info
+RewriteRule ^permintaan_dataset$ opd.php?t_opd=permintaan_dataset
+RewriteRule ^detail_dataset_org/([0-9]+)$ opd.php?t_opd=detail_dataset_org&id=$1 [NC,L]
+RewriteRule ^detail_info/([0-9]+)$ opd.php?t_opd=detail_info&id=$1 [NC,L]
+
+RewriteRule ^login$ login.php
+RewriteRule ^download$ download.php
+
+
 
 # X-XSS-Protection
 <IfModule mod_headers.c>

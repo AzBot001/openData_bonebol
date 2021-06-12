@@ -33,31 +33,39 @@ $query_kat = $mysqli->query("SELECT * FROM kategori_data");
                             $jmlh_topik = mysqli_num_rows($query_kat);
                             ?>
                             <h6 class="text-center wow fadeIn">Berikut daftar infografik yang ada di bone bolango</h6>
-                            <form action="">
-                                <input type="text" class="form-control m-5">
-                            </form>
-                            <div class="row text-center aza">
-                                <?php
-                                while ($d = $query_kat->fetch_assoc()) {
-                                ?>
-                                    <div class="col-sm-6 col-lg-3 py-3 wow zoomIn">
-                                        <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="public/uploads/kategori/<?= $d['gambar'] ?>" alt="Card image cap">
-                                            <div class="card-body text-left">
-                                                <p class="fw-bold" style="font-size: 12px;">Infografik data kependudukan Desa Wumioal </p>
-                                                <div style="margin-top:0px">
-                                                    <p>lorem</p>
-                                                    <p style="margin-top: -50px;">lrom</p>
-                                                </div>
-                                            </div>
-                                        </div>                                                                           
-                                    </div>
-                                <?php
-                                }
-                                ?>
+                            <table class="table table-hover wow fadeInUp" id="datatable1">
+                                <thead>
+                                    <tr>
+                                        <td width="10%"></td>
+                                        <td width="60%"></td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $query = $mysqli->query("SELECT *, kategori_data.gambar AS gb FROM infografik JOIN kategori_data ON infografik.id_kategori = kategori_data.id_kategori JOIN organisasi ON infografik.id_organisasi = organisasi.id_organisasi");
+                                    while ($d = $query->fetch_assoc()) {
+                                    ?>
+                                        <tr>
+                                            <td><img src="<?= $base_url ?>public/uploads/kategori/<?= $d['gb'] ?>" width="150" alt=""></td>
+                                            <td style="vertical-align: middle;">
+                                                <h5 class="jdl"><?= $d['judul'] ?></h5>
+                                                <h6 class="sjdl"><?= $d['nama_organisasi'] ?></h6>
+                                                <h6 class="sjdl"><?= $d['nama_kategori'] ?></h6>
+                                            </td>
+                                            <td style="vertical-align: middle;">
+                                                <a href="<?= $base_url ?>detail_infografik/<?= $d['id_infografik'] ?>" class="btn btn-dark btn-sm"><i class="mai-search"></i> Lihat Infografik</a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
 
 
-                            </div>
+
+
+                                </tbody>
+                            </table>
                         </div>
                     </div> <!-- End clients -->
                 </div>

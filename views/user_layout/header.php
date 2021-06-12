@@ -14,21 +14,21 @@ include 'app/aksi_login.php';
   <meta name="copyright" content="MACode ID, https://www.macodeid.com/">
   
 
-  <title>Mobster - One page app template</title>
+  <title>Open Data Bone Bolango</title>
 
-  <link rel="shortcut icon" href="public/assets/img/icons.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= $base_url ?>public/assets/img/icons.ico" type="image/x-icon">
 
-  <link rel="stylesheet" href="public/assets2/css/maicons.css">
+  <link rel="stylesheet" href="<?= $base_url ?>public/assets2/css/maicons.css">
 
-  <link rel="stylesheet" href="public/assets2/vendor/animate/animate.css">
+  <link rel="stylesheet" href="<?= $base_url ?>public/assets2/vendor/animate/animate.css">
 
-  <link rel="stylesheet" href="public/assets2/vendor/owl-carousel/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?= $base_url ?>public/assets2/vendor/owl-carousel/css/owl.carousel.min.css">
 
-  <link rel="stylesheet" href="public/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= $base_url ?>public/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
 
-  <link rel="stylesheet" href="public/assets2/css/bootstrap.css">
+  <link rel="stylesheet" href="<?= $base_url ?>public/assets2/css/bootstrap.css">
 
-  <link rel="stylesheet" href="public/assets2/css/mobster.css">
+  <link rel="stylesheet" href="<?= $base_url ?>public/assets2/css/mobster.css">
   <style>
   .img-place > img {
     width: 100%;
@@ -40,6 +40,9 @@ include 'app/aksi_login.php';
 .aza{
   align-items: center;
   justify-content: center;
+}
+.text-ungu{
+  color: #A52EFF;
 }
 .jdl{
   font-size: 20px;
@@ -54,11 +57,37 @@ include 'app/aksi_login.php';
   </style>
 </head>
 <body>
+<?php
+    function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+    ?>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -84,7 +113,7 @@ include 'app/aksi_login.php';
 <nav class="navbar navbar-expand-lg navbar-dark navbar-floating">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="public/assets2/opd_putih.png" alt="" width="90">
+      <img src="<?= $base_url ?>public/assets2/opd_putih.png" alt="" width="90">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -96,20 +125,19 @@ include 'app/aksi_login.php';
           <a class="nav-link" href="<?= $base_url; ?>">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="dataset">Dataset</a>
+          <a class="nav-link" href="<?= $base_url ?>dataset">Dataset</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="infografik">Infografik</a>
+          <a class="nav-link" href="<?= $base_url ?>infografik">Infografik</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="updates.html">Topic</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="<?= $base_url ?>organisasi">Organisasi</a>
         </li>
       </ul>
       <div class="ml-auto my-2 my-lg-0">
+        <?php if(!isset($_SESSION['unique_user'])): ?>
         <button class="btn btn-light rounded-pill" data-toggle="modal" data-target="#exampleModal">Login</button>
+        <?php endif;?>
       </div>
     </div>
   </div>

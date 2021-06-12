@@ -1,8 +1,16 @@
 <?php
 $query_org = $mysqli->query("SELECT * FROM organisasi");
 $jmlh_org = mysqli_num_rows($query_org);
+
 $query_org_limit = $mysqli->query("SELECT * FROM organisasi LIMIT 5");
+
 $query_kat = $mysqli->query("SELECT * FROM kategori_data");
+
+$query_dataset = $mysqli->query("SELECT * FROM dataset");
+$jumlah_dataset = mysqli_num_rows($query_dataset);
+
+$query_infografik = $mysqli->query("SELECT * FROM infografik");
+$jumlah_infografik = mysqli_num_rows($query_infografik);
 
 ?>
 
@@ -43,14 +51,14 @@ $query_kat = $mysqli->query("SELECT * FROM kategori_data");
         <div class="row justify-content-center">
           <div class="col-md-6 col-lg-4 py-3 wow fadeInLeft">
             <div class="card card-body border-0 text-center shadow pt-5">
-              <h1>11</h1>
+              <h1><?= $jumlah_dataset ?></h1>
               <h5 class="fg-gray">Total Dataset</h5>
               <p class="fs-small">Kumpulan data data mentah berupa tabel.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 py-3 wow fadeInUp">
             <div class="card card-body border-0 text-center shadow pt-5">          
-              <h1>21</h1>
+              <h1><?= $jumlah_infografik ?></h1>
               <h5 class="fg-gray">Total Infografik</h5>
               <p class="fs-small"> Informasi yang disajikan dalam bentuk grafik agar lebih mudah dipahami. </p>
             </div>

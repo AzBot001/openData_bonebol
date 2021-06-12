@@ -14,7 +14,14 @@ if($_GET['t_user'] == 'dataset'){
     include 'views/pages/user/detail_dataset.php';
 }else if($_GET['t_user'] == 'infografik'){
     include 'views/pages/user/infografik.php';
-}else{
+}else if($_GET['t_user'] == 'detail_infografik'){
+    include 'views/pages/user/detail_infografik.php';
+}else if($_GET['t_user'] == 'organisasi'){
+    include 'views/pages/user/organisasi.php';
+}else if($_GET['t_user'] == 'detail_organisasi'){
+    include 'views/pages/user/detail_organisasi.php';
+}
+else{
     include 'views/pages/user/beranda.php';
 }
 
