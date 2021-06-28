@@ -41,7 +41,7 @@
            "paging":false,
            "language": {
             "search": "Cari Dataset:",
-            "zeroRecords":    "Dataset tidak ditemukan",
+            "zeroRecords":    "Dataset / Infografik tidak ditemukan",
         }
        });
 </script>

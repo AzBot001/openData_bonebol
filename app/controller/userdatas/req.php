@@ -16,7 +16,7 @@ if(isset($_POST['req'])){
     $desk = $_POST['desk'];
     $tujuan = $_POST['tujuan'];
 
-    $query = $mysqli->query("INSERT INTO request_data VALUES('','$id_organisasi','$nama','$email','$judul','$desk','$tujuan')");
+    $query = $mysqli->query("INSERT INTO request_data VALUES('','$id_organisasi','$nama','$email','$judul','$desk','$tujuan','Pending')");
     echo "<script>alert('Berhasil Mengirim Permintaan Dataset')</script>";
 
 }

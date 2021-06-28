@@ -1,5 +1,5 @@
 <?php
 
-$base_url = 'https://localhost/openData_bonebol/';
+$base_url = 'http://localhost/openData_bonebol/';
 
 ?>

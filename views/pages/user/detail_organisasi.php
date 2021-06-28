@@ -12,8 +12,8 @@
         </div>
     </div>
     <?php
-    $idx = $_GET['id'];
-    $query = $mysqli->query("SELECT *, organisasi.deskripsi AS ddes FROM organisasi JOIN dataset ON organisasi.id_organisasi = dataset.id_organisasi JOIN infografik ON organisasi.id_organisasi = infografik.id_organisasi WHERE organisasi.id_organisasi = '$idx'");
+      $idx = $_GET['id'];
+    $query = $mysqli->query("SELECT * FROM organisasi WHERE id_organisasi = '$idx'");
     $d = $query->fetch_assoc();
 
     ?>
@@ -28,7 +28,7 @@
 
                     </div>
                     <div class="post-title mt-5"><?= $d['nama_organisasi'] ?></div>
-                    <p><?= $d['ddes'] ?></p>
+                    <p><?= $d['deskripsi'] ?></p>
 
                     <nav class="mt-5">
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">

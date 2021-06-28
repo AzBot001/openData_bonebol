@@ -18,8 +18,6 @@ if (isset($_POST['login'])) {
         $stmt_admin->execute();
         $stmt_admin->store_result();
 
-      
-
         if ($stmt_admin->num_rows > 0) {
             $stmt_admin->bind_result($id, $nama, $pass);
             $stmt_admin->fetch();

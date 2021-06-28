@@ -41,12 +41,13 @@
                 </ul>
               </div>
             </li>  
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="examples/icons.html">
-                <i class="fas fa-file text-primary"></i>
-                <span class="nav-link-text">Laporan</span>
+        
+            <li class="nav-item">
+              <a class="nav-link" href="<?= $base_url; ?>admin_permintaan_dataset">
+                <i class="fas fa-box text-primary"></i>
+                <span class="nav-link-text">Permintaan Dataset</span>
               </a>
-            </li>     -->
+            </li>    
             <?php endif; ?>  
 
             <?php if(isset($_GET['t_opd'])): ?>

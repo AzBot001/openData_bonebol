@@ -1,6 +1,7 @@
 <?php
  
   session_start();
+  include 'base_url.php';
   include 'app/session.php';
 
 if (isset($_SESSION['unique_user']) && $_SESSION['type_user'] == "admin") {
@@ -14,7 +15,7 @@ if (isset($_SESSION['unique_user']) && $_SESSION['type_user'] == "admin") {
 if (isset($_SESSION['unique_user']) && $_SESSION['type_user'] == "organisasi") {
   ?>
       <script>
-          window.location.href = 'beranda_organisasi';
+          window.location.href = '<?= $base_url; ?>';
       </script>
   <?php
       return false;
@@ -70,7 +71,7 @@ if (isset($_SESSION['unique_user']) && $_SESSION['type_user'] == "organisasi") {
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" name="password" type="password">
+                    <input class="form-control" placeholder="Password" name="pass" type="password">
                   </div>
                 </div>
 

@@ -137,7 +137,11 @@ include 'app/aksi_login.php';
       <div class="ml-auto my-2 my-lg-0">
         <?php if(!isset($_SESSION['unique_user'])): ?>
         <button class="btn btn-light rounded-pill" data-toggle="modal" data-target="#exampleModal">Login</button>
-        <?php endif;?>
+        <?php elseif($_SESSION['type_user'] == 'organisasi'): ?>
+          <a href="beranda_organisasi" class="btn btn-light rounded-pill">Dashboard</a>
+        <?php else: ?>
+          <a href="beranda_admin" class="btn btn-light rounded-pill">Dashboard</a>
+        <?php endif; ?>
       </div>
     </div>
   </div>

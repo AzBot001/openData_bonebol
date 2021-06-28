@@ -1,12 +1,10 @@
 <?php
+error_reporting(0);
+session_start();
 include 'app/env.php';
 include 'base_url.php';
 
-
 include 'views/user_layout/header.php';
-
-
-
 
 if($_GET['t_user'] == 'dataset'){
     include 'views/pages/user/dataset.php';
@@ -24,7 +22,6 @@ if($_GET['t_user'] == 'dataset'){
 else{
     include 'views/pages/user/beranda.php';
 }
-
 
 include 'views/user_layout/footer.php';
 

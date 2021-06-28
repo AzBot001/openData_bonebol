@@ -12,6 +12,7 @@ RewriteRule ^beranda_admin$ admin.php?t_admin=beranda_admin
 RewriteRule ^contoh$ admin.php?t_admin=contoh
 RewriteRule ^kategori$ admin.php?t_admin=kategori
 RewriteRule ^organisasi_perusahaan$ admin.php?t_admin=organisasi_perusahaan
+RewriteRule ^admin_permintaan_dataset$ admin.php?t_admin=admin_permintaan_dataset
 
 RewriteRule ^beranda$ user.php?t_user=beranda
 RewriteRule ^dataset$ user.php?t_user=dataset

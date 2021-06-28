@@ -3,7 +3,7 @@
 include 'app/env.php';
 include 'app/token.php';
 if (isset($_POST['logon'])) {
-    if (empty($_POST['user']) && empty($_POST['password'])) {
+    if (empty($_POST['user']) && empty($_POST['pass'])) {
     ?>
         <script>
             alert('Maaf masukkan Username dan Password terlebih dahulu !');
@@ -25,7 +25,7 @@ if (isset($_POST['logon'])) {
         if ($stmt_admin->num_rows > 0) {
             $stmt_admin->bind_result($id_admin, $nama, $pass);
             $stmt_admin->fetch();
-            if (md5($_POST['password'] == $pass)) {
+            if (md5($_POST['pass'])==$pass) {
                 session_regenerate_id();
 
                 $token = getToken(10);
@@ -50,7 +50,7 @@ if (isset($_POST['logon'])) {
                 $_SESSION['type_user'] = "admin";
                 ?>
                 <script>
-                    document.location.href = 'beranda_admin';
+                    document.location.href = '<?= $base_url; ?>beranda_admin';
                 </script>
                 <?php
             } else {

@@ -81,9 +81,9 @@
           </div>
           <div class="form-group">
             <label for="">Email</label>
-            <input type="email" name="email" class="form-control">
+            <input type="text" name="email" class="form-control">
           </div>
-              <hr>
+
           <div class="form-group mt-5">
           <p class="text-ungu">Informasi Kebutuhan DataSet</p>
             <label for="">Judul dataset yang dimohon</label>
@@ -103,7 +103,7 @@
           <input type="text" class="form-control" name="tujuan">
           </div>
           <div class="form-group">
-            <button type="submit" name="req" class="btn btn-secondary btn-block">Login</button>
+            <button type="submit" name="req" class="btn btn-secondary btn-block">Kirim</button>
           </div>
         </form>
       </div>

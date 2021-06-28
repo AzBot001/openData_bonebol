@@ -9,7 +9,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Total Permintaan Dataset</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php $query = $mysqli->query("SELECT * FROM request_data WHERE id_organisasi = '$id' AND status = 'Pending'"); echo mysqli_num_rows($query); ?> Data</span>
+                      <span class="h2 font-weight-bold mb-0"><?php $query = $mysqli->query("SELECT * FROM request_data WHERE id_organisasi = '$id'"); echo mysqli_num_rows($query); ?> Data</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">

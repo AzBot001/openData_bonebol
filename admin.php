@@ -23,6 +23,15 @@ if (isset($_SESSION['unique_user']) && $_SESSION['type_user'] != "admin") {
 <?php
     return false;
 }
+if (isset($_SESSION['unique_user']) && $_SESSION['type_user'] == "organisasi") {
+    ?>
+        <script>
+            alert('Anda tidak mempunyai akses ke halaman ini!');
+            window.location.href = 'beranda_organisasi';
+        </script>
+    <?php
+        return false;
+    }
 if($_GET['t_admin'] == 'beranda_admin'){
     $title = 'Beranda';
     $icon = 'fas fa-tv';
@@ -35,6 +44,12 @@ if($_GET['t_admin'] == 'beranda_admin'){
 } else if($_GET['t_admin'] == 'organisasi_perusahaan'){
     $title = 'Organisasi / Perusahaan';
     $icon = 'fas fa-city';
+} else if($_GET['t_admin'] == 'admin_permintaan_dataset'){
+    $title = 'Pertmintaan Dataset';
+    $icon = 'fas fa-box';
+} else{
+    $title = 'Beranda';
+    $icon = 'fas fa-tv';
 }
 
 
@@ -58,6 +73,8 @@ if($_GET['t_admin'] == 'beranda_admin'){
     include 'views/pages/admin/kategori.php';
 }else if($_GET['t_admin'] == 'organisasi_perusahaan'){
     include 'views/pages/admin/organisasi.php';
+}else if($_GET['t_admin'] == 'admin_permintaan_dataset'){
+    include 'views/pages/admin/permintaan.php';
 }else{
     include 'views/pages/admin/beranda.php';
 }

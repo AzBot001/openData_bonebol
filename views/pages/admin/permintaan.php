@@ -29,7 +29,7 @@
                 <tbody class="list">
                   <?php
                   $nomor = 1;
-                  $query = $mysqli->query("SELECT *,request_data.deskripsi AS req,request_data.email AS imel FROM request_data JOIN organisasi ON request_data.id_organisasi = organisasi.id_organisasi WHERE request_data.id_organisasi = '$id'");
+                  $query = $mysqli->query("SELECT * FROM request_data WHERE id_organisasi = '0'");
                   while ($d = $query->fetch_assoc()) {
                   ?>
                     <tr>
@@ -66,13 +66,13 @@
                             <p><?= $d['nama'] ?></p>
 
                             <h5>Email</h5>
-                            <p><?= $d['imel'] ?></p>
+                            <p><?= $d['email'] ?></p>
 
                             <h5>Judul</h5>
                             <p><?= $d['judul'] ?></p>
 
                             <h5>Deskripsi</h5>
-                            <p><?= $d['req'] ?></p>
+                            <p><?= $d['deskripsi'] ?></p>
 
                             <h5>Tujuan</h5>
                             <p><?= $d['tujuan'] ?></p>
@@ -85,74 +85,34 @@
                     </div>
 
                     <div class="modal fade" id="modal_input<?= $d['id_request'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Input Dataset</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Input Organisasi</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
                           <form action="" method="post" enctype="multipart/form-data">
-                            <div class="row">
-                              <div class="col-12">
-                                <div class="form-group f-jdl">
-                                  <input type="text" name="judul" placeholder="Judul" class="form-control">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-6">
                                 <div class="form-group">
-                                  <label for="">Kategori</label>
-                                  <select name="kategori" class="form-control">
-                                    <option value="" hidden>-Pilih Kategori-</option>
+                                <input type="hidden" value="<?= $d['id_request'] ?>" name="id">
+                                    <label for="">Pilih Organisasi</label>
+                                    <select class="form-control" name="organisasi" id="">
+                                    <option hidden>-Pilih Organisasi-</option>
                                     <?php
-                                    $queryx = $mysqli->query("SELECT * FROM kategori_data");
-                                    while ($dx = $queryx->fetch_assoc()) {
+                                    $queryx = $mysqli->query("SELECT * FROM organisasi");
+                                    while($dx = $queryx->fetch_assoc()){
                                     ?>
-                                      <option value="<?= $dx['id_kategori'] ?>"><?= $dx['nama_kategori'] ?></option>
+                                        <option value="<?= $dx['id_organisasi'];?>"><?= $dx['nama_organisasi'] ?><select>
                                     <?php
                                     }
                                     ?>
-                                  </select>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                  <label for="">Cakupan</label>
-                                  <input type="hidden" name="id" value="<?= $d['id_request'] ?>">
-                                  <input type="text" name="cakupan" class="form-control">
-                                  <input type="hidden" name="id_organisasi" value="<?= $id ?>">
+                                    <button type="submit" name="teruskan" class="btn btn-block btn-primary">Teruskan</button>
                                 </div>
-                              </div>
-                              <div class="col-6">
-                                <div class="form-group">
-                                  <label for="">File <small class="text-danger">*Excel (.xlsx)</small></label>
-                                  <input type="file" name="file" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                  <label for="">Frekuensi</label>
-                                  <input type="text" name="frekuensi" class="form-control">
-                                </div>
-
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-12">
-                                <label for="">Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi" id="" cols="30" rows="10">
-
-                                </textarea>
-                                
-                              </div>
-                            </div>
-                            <div class="row">
-                                  <div class="col-12">
-                                  <div class="form-group">
-                                <button type="submit" name="kirim_dataset" class=" mt-5 btn btn-primary btn-block">Kirim</button>
-                                </div>
-                                  </div>
-                            </div>
                           </form>
                           </div>
 

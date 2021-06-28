@@ -23,14 +23,7 @@ $jumlah_infografik = mysqli_num_rows($query_infografik);
           <h2 class="mb-4 fw-bold">Cari Data Tentang <br> Bone Bolango <br>
             Kini bisa di mana saja, <br> kapan saja</h2>
           <p class="mb-4">Di sini Anda bisa akses koleksi dataset terlengkap di Bone Bolango dengan cepat, mudah, dan akurat</p>
-          <div class="row">
-            <div class="col-7">
-              <input type="text" placeholder="Cari Dataset, Infografik" class="form-control">
-            </div>
-            <div class="col-3">
-              <a href="#" class="btn btn-block btn-dark"><i class="mai-search"></i></a>
-            </div>
-          </div>
+        
         </div>
         <div class="col-lg-6 d-none d-lg-block wow zoomIn">
           <div class="img-place floating-animate">
