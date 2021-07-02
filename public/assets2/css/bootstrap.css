@@ -41,6 +41,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -5195,7 +5196,7 @@ input[type="button"].btn-block {
   display: inline-block;
   padding-right: 0.5rem;
   color: #6c757d;
-  content: "/";
+  content: "->";
 }
 
 .breadcrumb-item+.breadcrumb-item:hover::before {

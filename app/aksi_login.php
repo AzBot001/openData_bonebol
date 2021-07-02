@@ -38,7 +38,6 @@ if (isset($_POST['login'])) {
                     $stmt_log = $mysqli->prepare("INSERT INTO token (email,token) VALUES ('{$_POST['user']}','$token')");
                     $stmt_log->execute();
                 }
-
                 $_SESSION['unique_user'] = $_POST['user'];
                 $_SESSION['unique_user2'] = $id;
                 $_SESSION['nama'] = $nama;
@@ -46,7 +45,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['type_user'] = "organisasi";
                 ?>
                 <script>
-                    document.location.href = 'beranda_organisasi';
+                    document.location.href = '<?= $base_url ?>beranda_organisasi';
                 </script>
                 <?php
             } else {

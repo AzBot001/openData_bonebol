@@ -16,7 +16,7 @@ if(isset($_POST['simpan_dataset'])){
     $id_org = $_POST['id_organisasi'];
     $kategori = $_POST['kategori'];
 
-    $query = $mysqli->query("INSERT INTO dataset VALUES ('','$id_org','$kategori','$judul','$cakupan','$frekuensi','$tgl_input',NULL,'$deskripsi','$media')");
+    $query = $mysqli->query("INSERT INTO dataset VALUES ('','$id_org','$kategori','$judul','$cakupan','$frekuensi','$tgl_input',NULL,'$deskripsi','$media',0)");
     flash('msg_simpan_dataset','Data berhasil disimpan');
 }
 if(isset($_POST['edit_dataset'])){

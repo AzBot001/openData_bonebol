@@ -1,5 +1,5 @@
 <footer style="padding: 10px; width:100%; text-align:center;" class="bg-dark text-white">&copy; <?= date('Y'); ?>  Hectast</footer>
-
+<?php $nmafile =  isset($d['judul']) ? $d['judul'] : 'Opendata'; ?>
 <script src="<?= $base_url ?>public/assets2/js/jquery-3.5.1.min.js"></script>
 
 <script src="<?= $base_url ?>public/assets2/js/bootstrap.bundle.min.js"></script>
@@ -17,6 +17,9 @@
 <script src="<?= $base_url ?>public/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
 <script src="<?= $base_url ?>public/assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
 <script src="<?= $base_url ?>public/assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+<script src="<?= $base_url ?>public/assets/vendor/select2/dist/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
 <script>
  $('#pilihan').change(function() {
         $('#option_tujuan').remove();
@@ -44,6 +47,64 @@
             "zeroRecords":    "Dataset / Infografik tidak ditemukan",
         }
        });
+
+   
+       $(document).ready(function() {
+        $('#tb_data').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                className: 'btn-light btn-file',
+                text: 'Json',
+                action: function ( e, dt, button, config ) {
+                    var data = dt.buttons.exportData();
+ 
+                    $.fn.dataTable.fileSave(
+                        new Blob( [ JSON.stringify( data ) ] ),
+                        '<?= $nmafile ?>'
+                    );
+                }
+                
+            },
+            {
+                extend:    'csvHtml5',
+                text:      'Csv',
+                titleAttr: 'CSV',
+                title:     '<?= $nmafile ?>',
+                className: 'btn-light btn-file'
+            },
+            {
+                extend:    'excelHtml5',
+                text:      'Excel',
+                titleAttr: 'Excel',
+                title:     '<?= $nmafile ?>',
+                className: 'btn-light btn-file'
+
+            }
+        ],
+        "searching":false,
+      
+       
+       
+    } );
+} );
+
+$(document).ready(function() {
+    $('.selek').select2({
+    placeholder: "Organisasi"
+    
+})
+});
+$(document).ready(function() {
+    $('.selek2').select2({
+    placeholder: "Kategori"
+    });
+});
+
+if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
 </script>
 </body>
 </html>

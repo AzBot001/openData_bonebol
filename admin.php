@@ -53,16 +53,9 @@ if($_GET['t_admin'] == 'beranda_admin'){
 }
 
 
-
-
-
-
 include 'views/layout/header.php';
 include 'views/layout/sidebar.php';
 include 'views/layout/navbar.php';
-
-
-
 
 
 if($_GET['t_admin'] == 'beranda_admin'){

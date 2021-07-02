@@ -26,11 +26,15 @@ include 'app/aksi_login.php';
 
   <link rel="stylesheet" href="<?= $base_url ?>public/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
 
+  <link rel="stylesheet" href="<?= $base_url ?>public/assets/vendor/select2/dist/css/select2.min.css">
+
   <link rel="stylesheet" href="<?= $base_url ?>public/assets2/css/bootstrap.css">
 
   <link rel="stylesheet" href="<?= $base_url ?>public/assets2/css/mobster.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  
   <style>
-  .img-place > img {
+.img-place > img {
     width: 100%;
     height: 100%;
 }
@@ -45,15 +49,75 @@ include 'app/aksi_login.php';
   color: #A52EFF;
 }
 .jdl{
-  font-size: 20px;
+  font-size: 17px;
   text-align: left;
   margin: 0 0 10px 0;
+  color: #616161;
 }
 .sjdl{
   font-size: 13px;
   margin: 0 0 0 0 ;
+  color: #616161;
 }
-
+.btn-file{
+  /* padding: 5px;    */
+  padding: 5px 25px;
+  border-radius: 0;
+}
+.btn-dark{
+  padding: 5px;
+}
+.btn-group, .btn-group-vertical {
+    position: sticky;
+    left: 0;
+    display: inline-flex;
+    vertical-align: middle;   
+}
+#bc::before {
+    content: '>';
+}
+.page-section {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+input:focus{
+  border: 0px;
+}
+.input-group-text{
+  background-color: #fff;
+}
+option:first {
+  color: #ff0;
+}
+.bgbg{
+  padding: 20px 20px;
+  font-size: 25px;
+  text-shadow: 1px 1px 2px #000 ;
+}
+ table{
+   font-size: 13px;
+ }
+ .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border-radius: 0;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    border-left: 0;
+    border-right: 1px solid #ced4da;
+    height: 48px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 47px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 47px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px;
+}
   </style>
 </head>
 <body>
