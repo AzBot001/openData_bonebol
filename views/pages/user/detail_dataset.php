@@ -5,7 +5,7 @@
     $update = $mysqli->query("UPDATE dataset SET view = $d[view] + 1 WHERE id_dataset = '$idx'");
 ?>
 <main>
-    <div class="page-hero-section bg-image hero-mini" style="background-image: url(<?= $base_url ?>public/assets2/hero_mini.jpg);">
+    <div class="page-hero-section bg-image hero-mini" style="height:500px;background-image: url(<?= $base_url ?>public/assets2/hero_mini.jpg);">
         <div class="hero-caption">
             <div class="container fg-white h-100">
                 <div class="row justify-content-center align-items-center text-center h-100">

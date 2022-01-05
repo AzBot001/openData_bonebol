@@ -12,8 +12,9 @@ if(isset($_POST['simpan_infografik'])){
     }
     $id_org = $_POST['id_organisasi'];
     $kategori = $_POST['kategori'];
+    $tgl_sekarang = date('Y-m-d');
 
-    $query = $mysqli->query("INSERT INTO infografik VALUES ('','$kategori','$id_org','$judul','$deskripsi','$media')");
+    $query = $mysqli->query("INSERT INTO infografik VALUES ('','$kategori','$id_org','$judul','$deskripsi','$media','$tgl_sekarang',0)");
     flash('msg_simpan_info','Data berhasil disimpan');
 }
 if(isset($_POST['edit_infografik'])){

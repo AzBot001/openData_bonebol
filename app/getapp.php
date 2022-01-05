@@ -10,6 +10,12 @@ if(isset($_SESSION['unique_user']) && $_SESSION['type_user'] == 'admin'){
     $id = $d['id_organisasi'];
     $nama_organ = $d['nama_organisasi'];
     $foto_organ = $d['gambar'];
+    $alamat = $d['alamat'];
+    $website = $d['website'];
+    $email = $d['email'];
+    $desk = $d['deskripsi'];
+    $no = $d['no_telp'];
+    $pass = $d['pass'];
 }
 
 

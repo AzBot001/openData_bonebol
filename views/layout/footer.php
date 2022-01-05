@@ -71,6 +71,7 @@
             }
         }
     });
+    
 
     $(document).ready(function() {
         setTimeout(function() {
@@ -79,6 +80,8 @@
             });
         }, 2000);
     });
+
+    
 
  
 </script>

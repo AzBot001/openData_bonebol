@@ -14,13 +14,18 @@ RewriteRule ^kategori$ admin.php?t_admin=kategori
 RewriteRule ^organisasi_perusahaan$ admin.php?t_admin=organisasi_perusahaan
 RewriteRule ^admin_permintaan_dataset$ admin.php?t_admin=admin_permintaan_dataset
 
+
 RewriteRule ^beranda$ user.php?t_user=beranda
-RewriteRule ^dataset$ user.php?t_user=dataset
+RewriteRule ^dataset$ user.php?t_user=dataset&judul=$1&organisasi=$2&kategori=$3 [QSA]
 RewriteRule ^detail_dataset/([0-9]+)$ user.php?t_user=detail_dataset&id=$1 [NC,L]
 RewriteRule ^detail_infografik/([0-9]+)$ user.php?t_user=detail_infografik&id=$1 [NC,L]
 RewriteRule ^detail_organisasi/([0-9]+)$ user.php?t_user=detail_organisasi&id=$1 [NC,L]
-RewriteRule ^infografik$ user.php?t_user=infografik
-RewriteRule ^organisasi$ user.php?t_user=organisasi
+RewriteRule ^topik/([0-9]+)$ user.php?t_user=topik&id=$1 [NC,L]
+RewriteRule ^infografik$ user.php?t_user=infografik&judul=$1&organisasi=$2&kategori=$3 [QSA]
+RewriteRule ^organisasi$ user.php?t_user=organisasi&nama=$1 [QSA]
+RewriteRule ^verifikasi$ user.php?t_user=verifikasi
+RewriteRule ^reset$ user.php?t_user=reset
+RewriteRule ^search$ user.php?t_user=search&cari=$1&judul=$2&organisasi=$3&kategori=$4 [QSA]
 
 RewriteRule ^beranda_organisasi$ opd.php?t_opd=beranda_organisasi
 RewriteRule ^dataset_org$ opd.php?t_opd=dataset_org
@@ -28,6 +33,7 @@ RewriteRule ^info$ opd.php?t_opd=info
 RewriteRule ^permintaan_dataset$ opd.php?t_opd=permintaan_dataset
 RewriteRule ^detail_dataset_org/([0-9]+)$ opd.php?t_opd=detail_dataset_org&id=$1 [NC,L]
 RewriteRule ^detail_info/([0-9]+)$ opd.php?t_opd=detail_info&id=$1 [NC,L]
+RewriteRule ^pengaturan_akun$ opd.php?t_opd=pengaturan_akun
 
 RewriteRule ^login$ login.php
 RewriteRule ^download$ download.php

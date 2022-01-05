@@ -42,6 +42,9 @@ if($_GET['t_opd'] == 'beranda_organisasi'){
 elseif($_GET['t_opd'] == 'permintaan_dataset'){
     $title = 'Permintaan Dataset';
     $icon = 'fas fa-box';
+}elseif($_GET['t_opd'] == 'pengaturan_akun'){
+    $title = 'Pengaturan Akun';
+    $icon = 'fas fa-user-cog';
 }
 
 
@@ -74,6 +77,9 @@ else if($_GET['t_opd'] == 'detail_info'){
 }
 else if($_GET['t_opd'] == 'permintaan_dataset'){
     include 'views/pages/opd/permintaan.php';
+}
+else if($_GET['t_opd'] == 'pengaturan_akun'){
+    include 'views/pages/opd/akun.php';
 }
 
 else{

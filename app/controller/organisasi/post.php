@@ -42,7 +42,7 @@ if(isset($_POST['edit_organisasi'])){
 if(isset($_POST['hapus_organisasi'])){
     $id = $_POST['id'];
     $gambar_s = $_POST['gambar_s'];
-    unlink("public/uploads/organisasi/$gambar_s");
+    unlink("public/uploads/kategori/$gambar_s");
     $query = $mysqli->query("DELETE FROM organisasi WHERE id_organisasi = '$id'");
     flash('msg_hapus_organisasi','Data Berhasil Dihapus');
 }

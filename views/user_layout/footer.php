@@ -1,4 +1,4 @@
-<footer style="padding: 10px; width:100%; text-align:center;" class="bg-dark text-white">&copy; <?= date('Y'); ?>  Hectast</footer>
+<footer style="padding: 10px; width:100%; text-align:center;" class="bg-dark text-white">&copy; <?= date('Y'); ?>  OpendataBonebol - <i class="fas fa-code"></i> With <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i></footer>
 <?php $nmafile =  isset($d['judul']) ? $d['judul'] : 'Opendata'; ?>
 <script src="<?= $base_url ?>public/assets2/js/jquery-3.5.1.min.js"></script>
 
@@ -100,11 +100,39 @@ $(document).ready(function() {
     placeholder: "Kategori"
     });
 });
+$(document).ready(function() {
+    $('.selek3').select2({
+    placeholder: "Organisasi Perangkat Daerah"
+    });
+});
 
-if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
+// if ( window.history.replaceState ) {
+//         window.history.replaceState( null, null, window.location.href );
+//     }
 
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        $(document).on('click', '#load_more', function(event){
+            event.preventDefault();
+
+            var id = $('#load_more').data('id');
+            $.ajax({
+                url : "<?= $base_url ?>app/load_dataset.php",
+                type : "post",
+                data : {id:id},
+                success : function(response){
+                    $('#remove').remove();
+                    $('#table_data').append(response);
+
+                }
+            });
+
+        });
+
+    });
 </script>
 </body>
 </html>

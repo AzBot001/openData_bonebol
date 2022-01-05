@@ -9,7 +9,7 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase ls-1 mb-1"><?= $title ?></h6>
-                  <h5 class="h3 mb-0">DISKOMINFO - BONEBOL</h5>
+                  <h5 class="h3 mb-0">Open Data Bone Bolango</h5>
                 </div>
               </div>
             </div>

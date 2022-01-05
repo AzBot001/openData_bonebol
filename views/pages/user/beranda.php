@@ -20,10 +20,17 @@ $jumlah_infografik = mysqli_num_rows($query_infografik);
     <div class="container fg-white h-100">
       <div class="row align-items-center h-100">
         <div class="col-lg-6 wow fadeInUp">
-          <h2 class="mb-4 fw-bold">Cari Data Tentang <br> Bone Bolango <br>
-            Kini bisa di mana saja, <br> kapan saja</h2>
-          <p class="mb-4">Di sini Anda bisa akses koleksi dataset terlengkap di Bone Bolango dengan cepat, mudah, dan akurat</p>
-        
+
+          <h1 class="mb-4">Open Data <br> Bone Bolango</h1>
+          <p class="mb-4">Cari data tentang Bone Bolango kini dapat di mana saja, kapan saja. Di sini Anda bisa akses koleksi dataset terlengkap di Bone Bolango dengan cepat, mudah, dan akurat.</p>
+          <form action="search" method="get">
+            <div class="input-group mb-3">
+              <input required type="text" name="cari" class="form-control" placeholder="Cari Dataset & Infografik" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn" type="submit" style="background-color:#383340; color:#fff;"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="col-lg-6 d-none d-lg-block wow zoomIn">
           <div class="img-place floating-animate">
@@ -38,7 +45,6 @@ $jumlah_infografik = mysqli_num_rows($query_infografik);
 <div class="page-section no-scroll">
   <div class="container">
     <h2 class="text-center wow fadeIn">Statistik OpenData Bone Bolango</h2>
-
     <div class="row justify-content-center mt-5">
       <div class="col-lg-10">
         <div class="row justify-content-center">
@@ -50,14 +56,14 @@ $jumlah_infografik = mysqli_num_rows($query_infografik);
             </div>
           </div>
           <div class="col-md-6 col-lg-4 py-3 wow fadeInUp">
-            <div class="card card-body border-0 text-center shadow pt-5">          
+            <div class="card card-body border-0 text-center shadow pt-5">
               <h1><?= $jumlah_infografik ?></h1>
               <h5 class="fg-gray">Total Infografik</h5>
               <p class="fs-small"> Informasi yang disajikan dalam bentuk grafik agar lebih mudah dipahami. </p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 py-3 wow fadeInRight">
-            <div class="card card-body border-0 text-center shadow pt-5">        
+            <div class="card card-body border-0 text-center shadow pt-5">
               <h1><?= $jmlh_org ?></h1>
               <h5 class="fg-gray">Total Organisasi</h5>
               <p class="fs-small"> OPD yang datanya tampil di OpenData Bone Bolango</p>
@@ -82,9 +88,11 @@ $jumlah_infografik = mysqli_num_rows($query_infografik);
       while ($d = $query_kat->fetch_assoc()) {
       ?>
         <div class="col-sm-6 col-lg-3 py-3 wow zoomIn">
-          <div class="img-place">
-            <img src="public/uploads/kategori/<?= $d['gambar'] ?>">
-          </div>
+          <a href="<?= $base_url ?>topik/<?= $d['id_kategori'] ?>">
+            <div class="img-place">
+              <img src="public/uploads/kategori/<?= $d['gambar'] ?>">
+            </div>
+          </a>
           <p class="text-center"><?= $d['nama_kategori'] ?></p>
         </div>
       <?php
@@ -108,7 +116,7 @@ $jumlah_infografik = mysqli_num_rows($query_infografik);
         <h2 class="mb-4">Mengapa Menggunakan OpenData Bone Bolango?</h2>
         <p class="mb-4">Cari data pemerintah Bone Bolango dalam beberapa klik, Nikmati proses akses data tanpa birokrasi panjang, Dapatkan data resmi dari organisasi perangkat daerah terkait</p>
         <p></p>
-      
+
       </div>
     </div>
   </div>
@@ -120,23 +128,24 @@ $jumlah_infografik = mysqli_num_rows($query_infografik);
 <div class="page-section">
   <div class="container">
     <div class="text-center wow fadeIn">
-      <h2 class="mb-4">Organisasi</h2>
+      <h2 class="mb-4">Organisasi Perangkat Daerah</h2>
     </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center align-items-center mt-5">
       <?php
-      while($r = $query_org_limit->fetch_assoc()){
+      while ($r = $query_org_limit->fetch_assoc()) {
       ?>
-       <div class="p-3 wow zoomIn">
-        <div class="img-place client-img">
-          <img src="public/uploads/kategori/<?= $r['gambar'] ?>" alt="">
+        <div class="p-3 wow zoomIn">
+
+          <div class="img-place client-img">
+            <img class="img-materi" src="public/uploads/kategori/<?= $r['gambar'] ?>" alt="">
+          </div>
         </div>
-      </div>
       <?php
       }
       ?>
     </div>
     <div class="text-center wow fadeIn">
-      <h6 class="mb-4"><?= $jmlh_org > 5 ? 'dan lainnya' : '' ?></h6>
+      <h6 class="mb-4"><?= $jmlh_org > 5 ? '<a href="organisasi">lainnya</a>' : '' ?></h6>
     </div>
   </div>
 </div>

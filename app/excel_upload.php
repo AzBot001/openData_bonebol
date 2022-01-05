@@ -11,7 +11,6 @@ function upload_file() {
        echo "
            <script>
                alert('pilih foto terlebih dahulu');
-
            </script>
        ";
        return false;
